@@ -118,9 +118,7 @@ const Expertise = () => {
           >
             <h3 className="text-2xl font-bold mb-8">Professional Journey</h3>
             
-            <div className="relative pl-10 pb-10 mt-12">
-              <div className="timeline-line"></div>
-              
+            <div className="relative pb-10 mt-12">
               {timeline.map((item, index) => (
                 <motion.div 
                   initial={{ opacity: 0, x: 20 }}
@@ -130,7 +128,6 @@ const Expertise = () => {
                   className="relative mb-16 last:mb-0" 
                   key={index}
                 >
-                  <div className="timeline-dot"></div>
                   <div className="mb-2 text-[#06B6D4] font-semibold text-lg">{item.period}</div>
                   <h4 className="text-2xl font-bold mb-2 text-white">{item.title}</h4>
                   <p className="text-[#94A3B8] mb-3 font-medium">{item.company}</p>
