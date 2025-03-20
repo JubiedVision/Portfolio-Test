@@ -33,21 +33,43 @@ const Contact = () => {
       return;
     }
 
-    // With Netlify Forms, the form will be handled automatically
-    // This is just for UX feedback
-    setFormSubmitted(true);
-    toast({
-      title: "Message sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    });
-
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: ""
-    });
+    try {
+      // Submit to Netlify Forms
+      const response = await fetch("https://jubied.netlify.app/.netlify/functions/submission-created", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+          "form-name": "contact",
+          ...formData
+        }),
+      });
+      
+      if (response.ok) {
+        // Success handling
+        setFormSubmitted(true);
+        toast({
+          title: "Message sent!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: ""
+        });
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive"
+      });
+      console.error("Form submission error:", error);
+    }
   };
 
   return (
@@ -167,6 +189,7 @@ const Contact = () => {
                 method="POST"
                 data-netlify="true"
                 netlify-honeypot="bot-field"
+                action="https://jubied.netlify.app/.netlify/functions/submission-created"
               >
                 <input type="hidden" name="form-name" value="contact" />
                 <p className="hidden">
