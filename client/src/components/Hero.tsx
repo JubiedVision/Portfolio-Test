@@ -12,18 +12,22 @@ const Hero = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-4 inline-block p-1 px-3 rounded-full bg-[#334155]/60 text-[#06B6D4] text-sm font-medium"
+          className="mb-4 inline-flex items-center p-1 px-3 rounded-full bg-[#334155]/60 text-sm font-medium border border-[#334155] group hover:border-[#06B6D4] transition-all duration-300"
         >
-          Based in Bangladesh
+          <span className="flex items-center">
+            <span className="w-2 h-2 rounded-full bg-[#06B6D4] animate-pulse-glow mr-2"></span>
+            <span className="bg-gradient-to-r from-[#06B6D4] to-[#8B5CF6] text-transparent bg-clip-text animate-gradient-shift">Based in Bangladesh</span>
+          </span>
         </motion.div>
         
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+          className="relative text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
         >
-          Jubied Emon
+          <span className="relative z-10">Jubied Emon</span>
+          <span className="absolute -bottom-2 left-0 right-0 h-2 bg-gradient-to-r from-[#06B6D4] to-[#8B5CF6] mx-auto w-48 blur-md opacity-50 animate-gradient-shift"></span>
         </motion.h1>
         
         <motion.div 
@@ -52,15 +56,28 @@ const Hero = () => {
         >
           <a 
             href="#portfolio" 
-            className="px-8 py-3 rounded-lg bg-[#06B6D4] text-[#0F172A] font-medium transition-all hover:bg-[#06B6D4]/90 hover:shadow-lg hover:shadow-[#06B6D4]/20"
+            className="relative px-8 py-3 rounded-lg group overflow-hidden"
           >
-            View My Work
+            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#06B6D4] to-[#8B5CF6] animate-gradient-shift"></span>
+            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#06B6D4] to-[#8B5CF6] opacity-75 blur-lg group-hover:opacity-100 animate-gradient-shift transition duration-300"></span>
+            <span className="relative flex items-center justify-center text-[#0F172A] font-medium">
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
+              </svg>
+              View My Work
+            </span>
           </a>
           <a 
             href="#contact" 
-            className="px-8 py-3 rounded-lg border border-[#334155] bg-[#334155]/40 hover:bg-[#334155]/60 font-medium transition-all"
+            className="relative px-8 py-3 rounded-lg group"
           >
-            Get In Touch
+            <span className="absolute inset-0 w-full h-full border border-[#334155] bg-[#334155]/40 rounded-lg group-hover:bg-[#334155]/60 transition-all duration-300"></span>
+            <span className="relative flex items-center justify-center font-medium">
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+              Get In Touch
+            </span>
           </a>
         </motion.div>
       </div>
@@ -68,11 +85,16 @@ const Hero = () => {
       <motion.div 
         animate={{ y: [0, -10, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#94A3B8]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
+        <span className="text-xs text-[#94A3B8] mb-2">Scroll Down</span>
+        <div className="w-8 h-12 border-2 border-[#334155] rounded-full flex justify-center items-start p-1">
+          <motion.div 
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="w-2 h-2 bg-[#06B6D4] rounded-full"
+          />
+        </div>
       </motion.div>
     </section>
   );

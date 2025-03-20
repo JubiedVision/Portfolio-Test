@@ -53,8 +53,8 @@ const TypingEffect = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <span>{text}</span>
-        <span className="inline-block w-[3px] h-[1em] ml-1 bg-[#06B6D4] animate-[blink_0.75s_step-end_infinite]"></span>
+        <span className="bg-gradient-to-r from-[#06B6D4] to-[#8B5CF6] text-transparent bg-clip-text animate-gradient-shift">{text}</span>
+        <span className="inline-block w-[3px] h-[1em] ml-1 bg-[#06B6D4] cursor-blink"></span>
       </motion.h2>
     </div>
   );

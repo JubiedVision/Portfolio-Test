@@ -130,13 +130,25 @@ const WelcomeAnimation = () => {
               }}
             >
               <motion.div
-                className="h-full bg-[#06B6D4]"
+                className="h-full bg-gradient-to-r from-[#06B6D4] to-[#8B5CF6] animate-gradient-shift"
                 initial={{ width: 0 }}
                 animate={{ 
                   width: "100%",
                   transition: { delay: 2, duration: 1.2 }
                 }}
               />
+            </motion.div>
+            
+            {/* Loading text */}
+            <motion.div
+              className="text-xs text-[#94A3B8] mt-2"
+              initial={{ opacity: 0 }}
+              animate={{ 
+                opacity: 1,
+                transition: { delay: 2, duration: 0.5 }
+              }}
+            >
+              <span>Welcome to my portfolio</span>
             </motion.div>
           </div>
         </motion.div>
