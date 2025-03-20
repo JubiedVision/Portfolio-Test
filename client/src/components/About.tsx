@@ -13,25 +13,16 @@ const About = () => {
             className="lg:col-span-5"
           >
             <div className="relative">
-              <div className="aspect-[3/4] rounded-lg overflow-hidden bg-[#334155]">
-                {/* Placeholder for image */}
-                <svg
-                  className="w-full h-full text-[#94A3B8] p-12"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1}
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
-                </svg>
+              <div className="aspect-[3/4] rounded-lg overflow-hidden bg-[#334155] relative shadow-[0_15px_30px_rgba(0,0,0,0.3)] border-2 border-[#1E293B]">
+                <img 
+                  src="/images/jubied-portrait.jpg" 
+                  alt="Jubied Emon Portrait" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/30 to-transparent"></div>
               </div>
-              <div className="absolute -bottom-5 -right-5 p-6 rounded-lg bg-[#334155]">
-                <div className="text-[#06B6D4] text-4xl font-mono font-bold">5+</div>
+              <div className="absolute -bottom-5 -right-5 p-6 rounded-lg bg-[#1E293B] border-2 border-[#06B6D4]/20 shadow-[0_10px_25px_rgba(6,182,212,0.2)]">
+                <div className="text-[#06B6D4] text-4xl font-bold">5+</div>
                 <div className="text-[#94A3B8] text-sm">Years of Experience</div>
               </div>
             </div>
