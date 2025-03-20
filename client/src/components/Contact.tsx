@@ -101,7 +101,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-medium mb-1">Email</h3>
-                  <a href="mailto:contact@jubiedemon.com" className="text-[#94A3B8] hover:text-[#06B6D4] transition-colors">contact@jubiedemon.com</a>
+                  <a href="mailto:jubiedofficial@gmail.com" className="text-[#94A3B8] hover:text-[#06B6D4] transition-colors">jubiedofficial@gmail.com</a>
                 </div>
               </div>
               
@@ -114,7 +114,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-medium mb-1">Location</h3>
-                  <p className="text-[#94A3B8]">Dhaka, Bangladesh</p>
+                  <p className="text-[#94A3B8]">Kushtia, Khulna, Bangladesh</p>
                 </div>
               </div>
             </div>
