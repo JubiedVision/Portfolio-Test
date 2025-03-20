@@ -48,8 +48,7 @@ const About = () => {
             
             <p className="text-lg text-[#94A3B8] mb-8">
               With a foundation in UI/UX design and expertise in AI technologies, I specialize in what 
-              I call "Vibe Coding" — creating digital products with a distinctive personality and feel 
-              that resonates with users.
+              I call "Vibe Coding" — using AI agents to write code and build applications by translating natural language prompts into functional software with minimal manual coding.
             </p>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
@@ -71,20 +70,22 @@ const About = () => {
               </div>
             </div>
             
-            <a 
-              href="#" 
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#1E293B] hover:bg-[#06B6D4]/10 border border-[#06B6D4]/30 text-[#06B6D4] rounded-lg shadow-md transition-all duration-300 font-medium group"
-            >
-              Download my resume
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                className="h-5 w-5 transform group-hover:translate-y-0.5 transition-transform" 
-                viewBox="0 0 20 20" 
-                fill="currentColor"
+            <div className="flex justify-center">
+              <a 
+                href="#" 
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#1E293B] hover:bg-[#06B6D4]/10 border border-[#06B6D4]/30 text-[#06B6D4] rounded-lg shadow-md transition-all duration-300 font-medium group"
               >
-                <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </a>
+                Download my resume
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  className="h-5 w-5 transform group-hover:translate-y-0.5 transition-transform" 
+                  viewBox="0 0 20 20" 
+                  fill="currentColor"
+                >
+                  <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>

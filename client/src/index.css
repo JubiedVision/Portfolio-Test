@@ -112,11 +112,11 @@
   
   .portfolio-card::before {
     content: '';
-    @apply absolute top-0 left-0 right-0 bottom-0 rounded-lg border border-transparent transition-all duration-300;
+    @apply absolute -inset-[1px] rounded-xl border-2 border-transparent opacity-0 transition-all duration-300 z-10 pointer-events-none;
   }
   
   .portfolio-card:hover::before {
-    @apply border-[#06B6D4];
+    @apply border-[#06B6D4] opacity-100 shadow-[0_0_15px_rgba(6,182,212,0.3)];
   }
   
   .social-icon {
