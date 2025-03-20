@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 47.4% 11.2%;
+    --foreground: 210 40% 98%;
+    
+    --card: 222.2 47.4% 15.2%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222.2 47.4% 15.2%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 192 94% 43%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    
+    --secondary: 261 51.6% 50.8%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 192 94% 43%;
+    
+    --radius: 0.5rem;
+  }
+  
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative text-[#F1F5F9] hover:text-[#06B6D4] transition-colors;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#06B6D4] transition-all duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .skill-bar {
+    @apply h-[6px] rounded-[3px] bg-[#334155] relative my-[10px];
+  }
+  
+  .skill-progress {
+    @apply h-[6px] rounded-[3px] bg-gradient-to-r from-[#06B6D4] to-[#8B5CF6] absolute top-0 left-0;
+  }
+  
+  .timeline-dot {
+    @apply w-[14px] h-[14px] bg-[#06B6D4] rounded-full absolute left-[-7px] top-0;
+  }
+  
+  .timeline-line {
+    @apply absolute left-0 top-[7px] bottom-0 w-[1px] bg-[#334155];
+  }
+  
+  .portfolio-card::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 bottom-0 rounded-lg border border-transparent transition-all duration-300;
+  }
+  
+  .portfolio-card:hover::before {
+    @apply border-[#06B6D4];
+  }
+  
+  .social-icon {
+    @apply transition-all duration-300;
+  }
+  
+  .social-icon:hover {
+    @apply text-[#06B6D4] translate-y-[-3px];
+  }
+}
