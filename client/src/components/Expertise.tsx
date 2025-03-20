@@ -118,7 +118,7 @@ const Expertise = () => {
           >
             <h3 className="text-2xl font-bold mb-8">Professional Journey</h3>
             
-            <div className="relative pl-8 pb-10">
+            <div className="relative pl-10 pb-10 mt-12">
               <div className="timeline-line"></div>
               
               {timeline.map((item, index) => (
@@ -127,14 +127,14 @@ const Expertise = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 * index }}
-                  className="relative mb-10" 
+                  className="relative mb-16 last:mb-0" 
                   key={index}
                 >
                   <div className="timeline-dot"></div>
-                  <div className="mb-1 text-[#06B6D4]">{item.period}</div>
-                  <h4 className="text-xl font-bold mb-2">{item.title}</h4>
-                  <p className="text-[#94A3B8] mb-2">{item.company}</p>
-                  <p className="text-[#94A3B8]">{item.description}</p>
+                  <div className="mb-2 text-[#06B6D4] font-semibold text-lg">{item.period}</div>
+                  <h4 className="text-2xl font-bold mb-2 text-white">{item.title}</h4>
+                  <p className="text-[#94A3B8] mb-3 font-medium">{item.company}</p>
+                  <p className="text-[#94A3B8] leading-relaxed">{item.description}</p>
                 </motion.div>
               ))}
             </div>
