@@ -6,6 +6,19 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Enable CORS for Netlify Functions
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+  
+  next();
+});
+
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
@@ -56,10 +69,13 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
-  // ALWAYS serve the app on port 3000
-  // this serves both the API and the client.
-  const port = 3000;
-  server.listen(port, () => {
-    log(`serving on port ${port}`);
-  });
+  // Check for Netlify environment
+  const isNetlify = process.env.NETLIFY === 'true';
+  if (!isNetlify) {
+    // Only start the server if not running on Netlify (it uses serverless functions)
+    const port = process.env.PORT || 3000;
+    server.listen(port, () => {
+      log(`serving on port ${port}`);
+    });
+  }
 })();

@@ -10,6 +10,7 @@ const Contact = () => {
     subject: "",
     message: ""
   });
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
@@ -32,8 +33,9 @@ const Contact = () => {
       return;
     }
 
-    // In a real application, you would send the form data to a server
-    // For this demo, just show a success toast
+    // With Netlify Forms, the form will be handled automatically
+    // This is just for UX feedback
+    setFormSubmitted(true);
     toast({
       title: "Message sent!",
       description: "Thank you for your message. I'll get back to you soon.",
@@ -146,65 +148,96 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <div>
-                <label htmlFor="name" className="block mb-2 font-medium">Name</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full p-3 rounded-lg bg-[#334155]/80 border border-[#1E293B] focus:border-[#06B6D4] focus:ring-1 focus:ring-[#06B6D4] transition-all outline-none" 
-                  placeholder="Your Name" 
-                  required
-                />
+            {formSubmitted ? (
+              <div className="bg-[#334155]/50 p-8 rounded-lg text-center">
+                <h3 className="text-2xl font-bold mb-4 text-[#06B6D4]">Thank You!</h3>
+                <p className="text-lg mb-4">Your message has been received. I'll get back to you as soon as possible.</p>
+                <button 
+                  onClick={() => setFormSubmitted(false)}
+                  className="px-6 py-2 rounded-lg bg-[#06B6D4] text-[#0F172A] font-medium transition-all hover:bg-[#06B6D4]/90"
+                >
+                  Send Another Message
+                </button>
               </div>
-              
-              <div>
-                <label htmlFor="email" className="block mb-2 font-medium">Email</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full p-3 rounded-lg bg-[#334155]/80 border border-[#1E293B] focus:border-[#06B6D4] focus:ring-1 focus:ring-[#06B6D4] transition-all outline-none" 
-                  placeholder="Your Email" 
-                  required
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="subject" className="block mb-2 font-medium">Subject</label>
-                <input 
-                  type="text" 
-                  id="subject" 
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className="w-full p-3 rounded-lg bg-[#334155]/80 border border-[#1E293B] focus:border-[#06B6D4] focus:ring-1 focus:ring-[#06B6D4] transition-all outline-none" 
-                  placeholder="Subject"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block mb-2 font-medium">Message</label>
-                <textarea 
-                  id="message" 
-                  rows={6} 
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full p-3 rounded-lg bg-[#334155]/80 border border-[#1E293B] focus:border-[#06B6D4] focus:ring-1 focus:ring-[#06B6D4] transition-all outline-none" 
-                  placeholder="Your Message" 
-                  required
-                ></textarea>
-              </div>
-              
-              <button 
-                type="submit" 
-                className="w-full py-3 rounded-lg bg-[#06B6D4] text-[#0F172A] font-medium transition-all hover:bg-[#06B6D4]/90 hover:shadow-lg hover:shadow-[#06B6D4]/20"
+            ) : (
+              <form 
+                className="space-y-6" 
+                onSubmit={handleSubmit}
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
               >
-                Send Message
-              </button>
-            </form>
+                <input type="hidden" name="form-name" value="contact" />
+                <p className="hidden">
+                  <label>
+                    Don't fill this out if you're human: <input name="bot-field" />
+                  </label>
+                </p>
+                
+                <div>
+                  <label htmlFor="name" className="block mb-2 font-medium">Name</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full p-3 rounded-lg bg-[#334155]/80 border border-[#1E293B] focus:border-[#06B6D4] focus:ring-1 focus:ring-[#06B6D4] transition-all outline-none" 
+                    placeholder="Your Name" 
+                    required
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block mb-2 font-medium">Email</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full p-3 rounded-lg bg-[#334155]/80 border border-[#1E293B] focus:border-[#06B6D4] focus:ring-1 focus:ring-[#06B6D4] transition-all outline-none" 
+                    placeholder="Your Email" 
+                    required
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="subject" className="block mb-2 font-medium">Subject</label>
+                  <input 
+                    type="text" 
+                    id="subject" 
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className="w-full p-3 rounded-lg bg-[#334155]/80 border border-[#1E293B] focus:border-[#06B6D4] focus:ring-1 focus:ring-[#06B6D4] transition-all outline-none" 
+                    placeholder="Subject"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="block mb-2 font-medium">Message</label>
+                  <textarea 
+                    id="message" 
+                    name="message"
+                    rows={6} 
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full p-3 rounded-lg bg-[#334155]/80 border border-[#1E293B] focus:border-[#06B6D4] focus:ring-1 focus:ring-[#06B6D4] transition-all outline-none" 
+                    placeholder="Your Message" 
+                    required
+                  ></textarea>
+                </div>
+                
+                <button 
+                  type="submit" 
+                  className="w-full py-3 rounded-lg bg-[#06B6D4] text-[#0F172A] font-medium transition-all hover:bg-[#06B6D4]/90 hover:shadow-lg hover:shadow-[#06B6D4]/20"
+                >
+                  Send Message
+                </button>
+              </form>
+            )}
           </motion.div>
         </div>
       </div>

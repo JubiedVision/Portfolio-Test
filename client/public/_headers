@@ -1,0 +1,20 @@
+# Cache assets for 1 year
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache images, fonts for 6 months
+/*.png
+  Cache-Control: public, max-age=15552000
+/*.jpg
+  Cache-Control: public, max-age=15552000
+/*.svg
+  Cache-Control: public, max-age=15552000
+/*.woff2
+  Cache-Control: public, max-age=15552000
+
+# Set security headers for all pages
+/*
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin 
