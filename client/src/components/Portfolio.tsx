@@ -17,14 +17,14 @@ const Portfolio = () => {
 
   return (
     <section id="portfolio" className="py-24 px-6 bg-[#1E293B]/30">
-      <div className="container mx-auto">
+      <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold mb-6"
+            className="text-3xl md:text-5xl font-bold mb-6 text-white"
           >
             My Portfolio
           </motion.h2>
@@ -72,7 +72,7 @@ const Portfolio = () => {
           </button>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {filteredItems.map((item, index) => (
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -80,19 +80,19 @@ const Portfolio = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 * index }}
               key={item.id}
-              className="portfolio-card relative group"
+              className="portfolio-card relative group bg-[#1A2234] rounded-xl overflow-hidden shadow-xl hover:shadow-[#06B6D4]/10 transition-all"
             >
-              <div className="overflow-hidden rounded-lg bg-[#334155]">
-                <div className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105 flex items-center justify-center p-8">
-                  <div className="text-6xl" role="img" aria-label={item.categoryLabel}>
+              <div className="overflow-hidden bg-[#334155] border-b-2 border-[#06B6D4]/30">
+                <div className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105 flex items-center justify-center p-8">
+                  <div className="text-8xl filter drop-shadow-lg" role="img" aria-label={item.categoryLabel}>
                     {item.iconType}
                   </div>
                 </div>
               </div>
-              <div className="mt-4">
-                <div className="flex items-center gap-2 mb-2">
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-3">
                   <span 
-                    className={`text-xs py-1 px-2 rounded
+                    className={`text-xs py-1 px-3 rounded-full font-medium
                       ${item.category === "uiux" ? "bg-[#06B6D4]/10 text-[#06B6D4]" : 
                       item.category === "ai" ? "bg-[#8B5CF6]/10 text-[#8B5CF6]" : 
                       "bg-[#06B6D4]/10 text-[#06B6D4]"}`}
@@ -100,9 +100,9 @@ const Portfolio = () => {
                     {item.categoryLabel}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-[#06B6D4] transition-colors">{item.title}</h3>
-                <p className="text-[#94A3B8]">{item.description}</p>
-                <a href={item.link} className="mt-4 inline-flex items-center gap-1 text-[#06B6D4] font-medium">
+                <h3 className="text-xl font-bold mb-3 group-hover:text-[#06B6D4] transition-colors">{item.title}</h3>
+                <p className="text-[#94A3B8] mb-4">{item.description}</p>
+                <a href={item.link} className="mt-2 inline-flex items-center gap-2 text-[#06B6D4] font-medium hover:text-[#06B6D4]/80 transition-colors">
                   View Case Study
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -113,10 +113,20 @@ const Portfolio = () => {
           ))}
         </div>
         
-        <div className="text-center mt-16">
-          <a href="#" className="px-8 py-3 rounded-lg border border-[#06B6D4] text-[#06B6D4] hover:bg-[#06B6D4] hover:text-[#0F172A] transition-all">
+        <div className="text-center mt-20">
+          <motion.a 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            href="#" 
+            className="px-10 py-4 rounded-xl border-2 border-[#06B6D4] text-[#06B6D4] hover:bg-[#06B6D4] hover:text-[#0F172A] transition-all font-bold shadow-lg hover:shadow-[#06B6D4]/20 inline-flex items-center gap-2"
+          >
             View All Projects
-          </a>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </motion.a>
         </div>
       </div>
     </section>
