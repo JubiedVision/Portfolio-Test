@@ -16,7 +16,7 @@ const Hero = () => {
         >
           <span className="flex items-center">
             <span className="w-2 h-2 rounded-full bg-[#06B6D4] animate-pulse-glow mr-2"></span>
-            <span className="bg-gradient-to-r from-[#06B6D4] to-[#8B5CF6] text-transparent bg-clip-text animate-gradient-shift">Based in Bangladesh</span>
+            <span className="text-[#06B6D4]">Based in Bangladesh</span>
           </span>
         </motion.div>
         
@@ -27,7 +27,7 @@ const Hero = () => {
           className="relative text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
         >
           <span className="relative z-10">Jubied Emon</span>
-          <span className="absolute -bottom-2 left-0 right-0 h-2 bg-gradient-to-r from-[#06B6D4] to-[#8B5CF6] mx-auto w-48 blur-md opacity-50 animate-gradient-shift"></span>
+          <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#06B6D4] to-[#06B6D4] mx-auto w-24 rounded-full opacity-70"></span>
         </motion.h1>
         
         <motion.div 
@@ -58,8 +58,7 @@ const Hero = () => {
             href="#portfolio" 
             className="relative px-8 py-3 rounded-lg group overflow-hidden"
           >
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#06B6D4] to-[#8B5CF6] animate-gradient-shift"></span>
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#06B6D4] to-[#8B5CF6] opacity-75 blur-lg group-hover:opacity-100 animate-gradient-shift transition duration-300"></span>
+            <span className="absolute inset-0 w-full h-full bg-[#06B6D4] group-hover:bg-[#0891b2] transition-colors duration-300"></span>
             <span className="relative flex items-center justify-center text-[#0F172A] font-medium">
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>

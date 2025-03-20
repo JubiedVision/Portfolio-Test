@@ -130,7 +130,7 @@ const WelcomeAnimation = () => {
               }}
             >
               <motion.div
-                className="h-full bg-gradient-to-r from-[#06B6D4] to-[#8B5CF6] animate-gradient-shift"
+                className="h-full bg-[#06B6D4]"
                 initial={{ width: 0 }}
                 animate={{ 
                   width: "100%",
