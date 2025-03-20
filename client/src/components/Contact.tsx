@@ -34,14 +34,18 @@ const Contact = () => {
     }
 
     try {
-      // Submit to Netlify Forms
-      const response = await fetch("https://jubied.netlify.app/.netlify/functions/submission-created", {
+      // Create form data object (Netlify expects form data, not JSON)
+      const formEntries = new FormData();
+      formEntries.append("form-name", "contact");
+      Object.entries(formData).forEach(([key, value]) => {
+        formEntries.append(key, value);
+      });
+
+      // Submit to Netlify Forms directly
+      const response = await fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
-          "form-name": "contact",
-          ...formData
-        }),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formEntries as any).toString(),
       });
       
       if (response.ok) {
@@ -189,7 +193,6 @@ const Contact = () => {
                 method="POST"
                 data-netlify="true"
                 netlify-honeypot="bot-field"
-                action="https://jubied.netlify.app/.netlify/functions/submission-created"
               >
                 <input type="hidden" name="form-name" value="contact" />
                 <p className="hidden">
