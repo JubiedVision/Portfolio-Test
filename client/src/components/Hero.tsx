@@ -81,20 +81,22 @@ const Hero = () => {
         </motion.div>
       </div>
       
-      <motion.div 
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
-      >
-        <span className="text-xs text-[#94A3B8] mb-2">Scroll Down</span>
-        <div className="w-8 h-12 border-2 border-[#334155] rounded-full flex justify-center items-start p-1">
-          <motion.div 
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-2 h-2 bg-[#06B6D4] rounded-full"
-          />
-        </div>
-      </motion.div>
+      <div className="absolute bottom-10 left-0 right-0 flex justify-center items-center w-full">
+        <motion.div 
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="flex flex-col items-center"
+        >
+          <span className="text-xs text-[#94A3B8] mb-2">Scroll Down</span>
+          <div className="w-8 h-12 border-2 border-[#334155] rounded-full flex justify-center items-start p-1">
+            <motion.div 
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              className="w-2 h-2 bg-[#06B6D4] rounded-full"
+            />
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 };
