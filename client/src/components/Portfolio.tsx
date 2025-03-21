@@ -201,7 +201,7 @@ const Portfolio = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            href="#" 
+            href="/projects" 
             className="px-10 py-4 rounded-xl border-2 border-[#06B6D4] text-[#06B6D4] hover:bg-[#06B6D4] hover:text-[#0F172A] transition-all font-bold shadow-lg hover:shadow-[#06B6D4]/20 inline-flex items-center gap-2"
           >
             View All Projects

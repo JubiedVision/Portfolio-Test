@@ -41,6 +41,7 @@ const Navbar = () => {
           <nav className="hidden md:flex items-center space-x-10">
             <a href="#about" className="nav-link">About</a>
             <a href="#portfolio" className="nav-link">Portfolio</a>
+            <a href="/projects" className="nav-link">Projects</a>
             <a href="#expertise" className="nav-link">Expertise</a>
             <a href="#contact" className="nav-link">Contact</a>
           </nav>
@@ -78,6 +79,7 @@ const Navbar = () => {
               </button>
               <a href="#about" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>About</a>
               <a href="#portfolio" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>Portfolio</a>
+              <a href="/projects" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>Projects</a>
               <a href="#expertise" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>Expertise</a>
               <a href="#contact" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>Contact</a>
             </div>

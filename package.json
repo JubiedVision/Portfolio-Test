@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "tsx server/index.ts",
-    "build": "npm run generate-favicons && vite build && npm run copy-files && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
+    "build": "node scripts/generate-favicons.js || true && vite build && npm run copy-files && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
     "copy-files": "node scripts/copy-netlify-files.js",
     "generate-favicons": "node scripts/generate-favicons.js",
     "start": "NODE_ENV=production node dist/index.js",
