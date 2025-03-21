@@ -16,28 +16,33 @@ const Expertise = () => {
 
   const timeline = [
     {
-      period: "2023 - Present",
+      period: "Mar 2023 - Present",
+      title: "Co-Founder & Principal Design & Development",
+      company: "UX Centerd • Self-employed",
+      description: "UI design • UX design • Framer Website Development • Web Design • Mobile App Design",
+      location: "Remote"
+    },
+    {
+      period: "Jul 2022 - Apr 2023",
+      title: "Associate Lead Generation Specialist & Web Researcher",
+      company: "Abridge IT Firm • Full-time",
+      description: "",
+      duration: "10 mos"
+    },
+    {
+      period: "Jun 2021 - Sep 2021",
       title: "Lead UI/UX Designer",
-      company: "TechVision Studios",
-      description: "Leading design strategy for enterprise applications with focus on AI-augmented interfaces and accessibility."
+      company: "WAHLREICH • Full-time",
+      description: "",
+      location: "Germany",
+      duration: "4 mos"
     },
     {
-      period: "2020 - 2023",
-      title: "Senior Frontend Developer",
-      company: "Innovate Solutions",
-      description: "Developed responsive web applications with modern JavaScript frameworks and integrated AI components."
-    },
-    {
-      period: "2018 - 2020",
-      title: "UI Designer",
-      company: "CreativeMinds Agency",
-      description: "Created user interfaces for mobile applications and websites focusing on intuitive user experiences."
-    },
-    {
-      period: "2017 - 2018",
-      title: "Freelance Designer",
-      company: "Self-employed",
-      description: "Collaborated with various clients to deliver custom design solutions and web development projects."
+      period: "Jun 2019 - Apr 2020",
+      title: "Web Researcher",
+      company: "Tech Trump • Freelance",
+      description: "",
+      duration: "11 mos"
     }
   ];
 
@@ -130,8 +135,9 @@ const Expertise = () => {
                 >
                   <div className="mb-2 text-[#06B6D4] font-semibold text-lg">{item.period}</div>
                   <h4 className="text-2xl font-bold mb-2 text-white">{item.title}</h4>
-                  <p className="text-[#94A3B8] mb-3 font-medium">{item.company}</p>
-                  <p className="text-[#94A3B8] leading-relaxed">{item.description}</p>
+                  <p className="text-[#94A3B8] mb-2 font-medium">{item.company}</p>
+                  {item.location && <p className="text-[#94A3B8] mb-2">{item.location}</p>}
+                  {item.description && <p className="text-[#94A3B8] leading-relaxed">{item.description}</p>}
                 </motion.div>
               ))}
             </div>
