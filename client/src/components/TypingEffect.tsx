@@ -5,6 +5,7 @@ const phrases = [
   "UI/UX Designer",
   "AI Developer",
   "Creative Technologist",
+  "Frontend Developer",
   "Vibe Coder"
 ];
 
@@ -46,16 +47,32 @@ const TypingEffect = () => {
   }, [phraseIndex, charIndex, isDeleting]);
   
   return (
-    <div className="inline-block">
-      <motion.h2 
-        className="typing-text text-xl md:text-2xl lg:text-3xl font-medium text-[#94A3B8]"
+    <div className="inline-flex items-center">
+      <motion.div 
+        className="typing-container relative px-4 py-1.5"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <span className="text-[#06B6D4]">{text}</span>
-        <span className="inline-block w-[3px] h-[1em] ml-1 bg-[#06B6D4] cursor-blink"></span>
-      </motion.h2>
+        <span className="typing-text text-xl md:text-2xl lg:text-3xl font-medium whitespace-nowrap">
+          I'm a <span className="text-[#06B6D4] font-semibold relative">
+            {text}
+            <motion.span 
+              className="inline-block w-[3px] h-[1em] ml-1 bg-[#06B6D4] absolute"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity, ease: "steps(3)" }}
+            />
+          </span>
+        </span>
+        
+        {/* Highlight background effect */}
+        <motion.div 
+          className="absolute inset-0 bg-[#1E293B]/40 rounded-lg -z-10"
+          initial={{ width: 0 }}
+          animate={{ width: "100%" }}
+          transition={{ duration: 0.5 }}
+        />
+      </motion.div>
     </div>
   );
 };

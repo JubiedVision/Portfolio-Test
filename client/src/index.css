@@ -60,9 +60,16 @@
     @apply border-border;
   }
 
+  html, body {
+    @apply overflow-x-hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+
   body {
     @apply antialiased bg-background text-foreground;
     font-family: 'Circular Std', sans-serif;
+    position: relative;
   }
 
   h1, h2, h3, h4, h5, h6 {

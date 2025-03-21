@@ -4,10 +4,10 @@ import TypingEffect from "./TypingEffect";
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center px-6 pt-24">
+    <section id="hero" className="relative min-h-screen w-full flex items-center justify-center px-4 md:px-6 py-16 overflow-hidden">
       <ParticleBackground />
       
-      <div className="container mx-auto text-center z-10">
+      <div className="container mx-auto text-center z-10 flex flex-col items-center justify-center max-w-5xl">
         <motion.div 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -16,7 +16,13 @@ const Hero = () => {
         >
           <span className="flex items-center">
             <span className="w-2 h-2 rounded-full bg-[#06B6D4] animate-pulse-glow mr-2"></span>
-            <span className="text-[#06B6D4]">Based in Bangladesh</span>
+            <span className="text-[#06B6D4] flex items-center">
+              Based in Bangladesh 
+              <svg className="ml-1.5 w-4 h-3" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#006a4e" d="M0 0h640v480H0z"/>
+                <circle cx="280" cy="240" r="160" fill="#f42a41"/>
+              </svg>
+            </span>
           </span>
         </motion.div>
         
@@ -34,7 +40,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-8 flex justify-center"
+          className="mb-6 flex justify-center"
         >
           <TypingEffect />
         </motion.div>
@@ -48,15 +54,33 @@ const Hero = () => {
           Creating seamless experiences at the intersection of design, artificial intelligence, and development.
         </motion.p>
         
+        {/* Tech stack icons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="flex flex-wrap justify-center gap-3 md:gap-4 mb-10"
+        >
+          {["React", "AI", "TypeScript", "UI/UX", "Node.js"].map((tech, index) => (
+            <span 
+              key={index}
+              className="px-3 py-1 bg-[#1E293B]/80 text-[#94A3B8] rounded-md text-sm font-medium border border-[#334155] flex items-center"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#06B6D4] mr-2"></span>
+              {tech}
+            </span>
+          ))}
+        </motion.div>
+        
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto"
         >
           <a 
             href="#portfolio" 
-            className="relative px-8 py-3 rounded-lg group overflow-hidden"
+            className="relative px-6 py-3 rounded-lg group overflow-hidden w-full sm:w-auto text-center"
           >
             <span className="absolute inset-0 w-full h-full bg-[#06B6D4] group-hover:bg-[#0891b2] transition-colors duration-300"></span>
             <span className="relative flex items-center justify-center text-[#0F172A] font-medium">
@@ -68,7 +92,7 @@ const Hero = () => {
           </a>
           <a 
             href="#contact" 
-            className="relative px-8 py-3 rounded-lg group"
+            className="relative px-6 py-3 rounded-lg group w-full sm:w-auto text-center"
           >
             <span className="absolute inset-0 w-full h-full border border-[#334155] bg-[#334155]/40 rounded-lg group-hover:bg-[#334155]/60 transition-all duration-300"></span>
             <span className="relative flex items-center justify-center font-medium">
@@ -81,22 +105,26 @@ const Hero = () => {
         </motion.div>
       </div>
       
-      <div className="absolute bottom-10 left-0 right-0 flex justify-center items-center w-full">
+      <div className="absolute bottom-8 left-0 right-0 flex justify-center items-center w-full">
         <motion.div 
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center"
         >
           <span className="text-xs text-[#94A3B8] mb-2">Scroll Down</span>
-          <div className="w-8 h-12 border-2 border-[#334155] rounded-full flex justify-center items-start p-1">
+          <div className="w-7 h-10 border-2 border-[#334155] rounded-full flex justify-center items-start p-1">
             <motion.div 
-              animate={{ y: [0, 12, 0] }}
+              animate={{ y: [0, 10, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="w-2 h-2 bg-[#06B6D4] rounded-full"
+              className="w-1.5 h-1.5 bg-[#06B6D4] rounded-full"
             />
           </div>
         </motion.div>
       </div>
+      
+      {/* Decorative gradient elements - contained within the section */}
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#06B6D4]/10 rounded-full filter blur-[100px] transform -translate-x-1/3 translate-y-1/4 z-0 opacity-60"></div>
+      <div className="absolute top-0 right-0 w-80 h-80 bg-purple-500/5 rounded-full filter blur-[100px] transform translate-x-1/4 -translate-y-1/3 z-0 opacity-60"></div>
     </section>
   );
 };

@@ -32,7 +32,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-[#F1F5F9]">
+      <div className="relative w-full overflow-hidden min-h-screen bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-[#F1F5F9]">
         <SpotlightEffect mousePosition={mousePosition} />
         <Router />
         <Toaster />
