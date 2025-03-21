@@ -40,39 +40,13 @@ const Projects = () => {
             className="text-center mb-16"
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-              All <span className="text-[#06B6D4]">Projects</span>
+              My <span className="text-[#06B6D4]">Projects</span>
             </h1>
             <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto">
               Browse my complete portfolio of projects across UI/UX Design, AI Technology, and Vibe Coding
             </p>
           </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-10"
-          >
-            <div className="relative max-w-lg mx-auto">
-              <input
-                type="text"
-                placeholder="Search projects..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full py-3 px-5 pl-12 rounded-full border border-[#334155] bg-[#1A2234] text-[#F1F5F9] focus:outline-none focus:ring-2 focus:ring-[#06B6D4] focus:border-transparent"
-              />
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                className="h-5 w-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-[#94A3B8]" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </div>
-          </motion.div>
-          
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation } from "wouter";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [location] = useLocation();
+  const isHomePage = location === "/";
+  const isProjectsPage = location === "/projects" || location.startsWith("/projects/");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,22 +32,69 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   };
 
+  // Function to handle navigation
+  const navigateTo = (path: string) => {
+    closeMobileMenu();
+    
+    // If it's an anchor link and we're on the home page, scroll to it
+    if (path.startsWith('#') && isHomePage) {
+      const element = document.querySelector(path);
+      if (element) {
+        window.scrollTo({
+          top: element.getBoundingClientRect().top + window.scrollY - 80,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
+
   return (
     <>
       <header className={`fixed top-0 w-full py-4 px-6 md:px-16 z-50 transition-all duration-300 ${
         isScrolled ? "backdrop-blur-md bg-[#0F172A]/80" : ""
       }`}>
         <div className="container mx-auto flex items-center justify-between">
-          <a href="#" className="text-xl font-bold text-[#F1F5F9] flex items-center gap-2">
+          <a href="/" className="text-xl font-bold text-[#F1F5F9] flex items-center gap-2">
             <span className="text-[#06B6D4] text-2xl">&lt;</span>JE<span className="text-[#06B6D4] text-2xl">/&gt;</span>
           </a>
           
           <nav className="hidden md:flex items-center space-x-10">
-            <a href="#about" className="nav-link">About</a>
-            <a href="#portfolio" className="nav-link">Portfolio</a>
-            <a href="/projects" className="nav-link">Projects</a>
-            <a href="#expertise" className="nav-link">Expertise</a>
-            <a href="#contact" className="nav-link">Contact</a>
+            {isProjectsPage ? (
+              // Only show Home and Projects on Projects page
+              <>
+                <a href="/" className="nav-link">Home</a>
+                <a href="/projects" className="nav-link">Projects</a>
+              </>
+            ) : (
+              // Show all nav items on other pages
+              <>
+                {isHomePage ? (
+                  <a href="#about" className="nav-link">About</a>
+                ) : (
+                  <a href="/#about" className="nav-link">About</a>
+                )}
+                
+                {isHomePage ? (
+                  <a href="#portfolio" className="nav-link">Portfolio</a>
+                ) : (
+                  <a href="/#portfolio" className="nav-link">Portfolio</a>
+                )}
+                
+                <a href="/projects" className="nav-link">Projects</a>
+                
+                {isHomePage ? (
+                  <a href="#expertise" className="nav-link">Expertise</a>
+                ) : (
+                  <a href="/#expertise" className="nav-link">Expertise</a>
+                )}
+                
+                {isHomePage ? (
+                  <a href="#contact" className="nav-link">Contact</a>
+                ) : (
+                  <a href="/#contact" className="nav-link">Contact</a>
+                )}
+              </>
+            )}
           </nav>
           
           <button 
@@ -77,11 +128,43 @@ const Navbar = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
-              <a href="#about" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>About</a>
-              <a href="#portfolio" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>Portfolio</a>
-              <a href="/projects" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>Projects</a>
-              <a href="#expertise" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>Expertise</a>
-              <a href="#contact" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>Contact</a>
+              
+              {isProjectsPage ? (
+                // Only show Home and Projects on Projects page mobile menu
+                <>
+                  <a href="/" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>Home</a>
+                  <a href="/projects" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>Projects</a>
+                </>
+              ) : (
+                // Show all nav items on other pages mobile menu
+                <>
+                  {isHomePage ? (
+                    <a href="#about" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>About</a>
+                  ) : (
+                    <a href="/#about" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>About</a>
+                  )}
+                  
+                  {isHomePage ? (
+                    <a href="#portfolio" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>Portfolio</a>
+                  ) : (
+                    <a href="/#portfolio" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>Portfolio</a>
+                  )}
+                  
+                  <a href="/projects" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>Projects</a>
+                  
+                  {isHomePage ? (
+                    <a href="#expertise" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>Expertise</a>
+                  ) : (
+                    <a href="/#expertise" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>Expertise</a>
+                  )}
+                  
+                  {isHomePage ? (
+                    <a href="#contact" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>Contact</a>
+                  ) : (
+                    <a href="/#contact" className="text-[#F1F5F9] hover:text-[#06B6D4] transition-colors" onClick={closeMobileMenu}>Contact</a>
+                  )}
+                </>
+              )}
             </div>
           </motion.div>
         )}
